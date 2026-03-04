@@ -1,0 +1,59 @@
+{
+  "name": "@albertnox/aesc-components",
+  "version": "0.1.0",
+  "private": false,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./button": {
+      "types": "./dist/components/button/index.d.ts",
+      "import": "./dist/components/button/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "tailwind:generate": "node scripts/generate-tailwind.mjs",
+    "predev": "npm run tailwind:generate",
+    "prebuild": "npm run tailwind:generate",
+    "dev": "vite",
+    "build:types": "tsc -p tsconfig.build.json",
+    "build": "vite build && npm run build:types",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "playwright:install": "playwright install chromium",
+    "test": "web-test-runner \"src/**/*.test.ts\" --config web-test-runner.config.mjs",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "docs": "vitepress dev docs",
+    "build-docs": "vitepress build docs",
+    "preview-docs": "vitepress preview docs"
+  },
+  "dependencies": {
+    "lit": "^3.3.2"
+  },
+  "devDependencies": {
+    "@open-wc/testing": "^4.0.0",
+    "@storybook/web-components": "^10.2.14",
+    "@storybook/web-components-vite": "^10.2.14",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^25.3.3",
+    "@web/dev-server-esbuild": "^1.0.5",
+    "@web/test-runner": "^0.20.2",
+    "@web/test-runner-playwright": "^0.11.1",
+    "autoprefixer": "^10.4.27",
+    "playwright": "^1.58.2",
+    "postcss": "^8.5.8",
+    "storybook": "^10.2.14",
+    "@tailwindcss/cli": "^4.2.1",
+    "@tailwindcss/postcss": "^4.2.1",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vitepress": "^1.6.4"
+  }
+}
