@@ -15,6 +15,30 @@
     "./button": {
       "types": "./dist/components/button/index.d.ts",
       "import": "./dist/components/button/index.js"
+    },
+    "./checkbox": {
+      "types": "./dist/components/checkbox/index.d.ts",
+      "import": "./dist/components/checkbox/index.js"
+    },
+    "./input": {
+      "types": "./dist/components/input/index.d.ts",
+      "import": "./dist/components/input/index.js"
+    },
+    "./link": {
+      "types": "./dist/components/link/index.d.ts",
+      "import": "./dist/components/link/index.js"
+    },
+    "./heading": {
+      "types": "./dist/components/heading/index.d.ts",
+      "import": "./dist/components/heading/index.js"
+    },
+    "./card": {
+      "types": "./dist/components/card/index.d.ts",
+      "import": "./dist/components/card/index.js"
+    },
+    "./breadcrumb": {
+      "types": "./dist/components/breadcrumb/index.d.ts",
+      "import": "./dist/components/breadcrumb/index.js"
     }
   },
   "files": [
@@ -27,6 +51,9 @@
     "dev": "vite",
     "build:types": "tsc -p tsconfig.build.json",
     "build": "vite build && npm run build:types",
+    "analyze:bundle": "cross-env ANALYZE=true vite build",
+    "analyze:size": "npm run build && node scripts/build-size.mjs",
+    "check:size": "npm run build && node scripts/build-size.mjs --max-file-brotli-kb 5 --max-total-brotli-kb 10",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "playwright:install": "playwright install chromium",
     "test": "web-test-runner \"src/**/*.test.ts\" --config web-test-runner.config.mjs",
@@ -49,8 +76,10 @@
     "@web/test-runner": "^0.20.2",
     "@web/test-runner-playwright": "^0.11.1",
     "autoprefixer": "^10.4.27",
+    "cross-env": "^7.0.3",
     "playwright": "^1.58.2",
     "postcss": "^8.5.8",
+    "rollup-plugin-visualizer": "^6.0.3",
     "storybook": "^10.2.14",
     "@tailwindcss/cli": "^4.2.1",
     "@tailwindcss/postcss": "^4.2.1",
